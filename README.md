@@ -9,13 +9,13 @@ See [DEVICES.md](DEVICES.md) for full list of supported devices.
 ## Installation
 
 ```sh
-npm install node-mihome
+npm install mi-home-control
 ```
 
 ## Usage
 
 ```javascript
-const mihome = require('node-mihome');
+const mihome = require('mi-home-control');
 ```
 
 Some devices aren't supported over local protocol (miIO) so you need to use cloud protocol (MIoT) to control those devices. User and password for [Mi Account](https://account.xiaomi.com/) is required to use cloud protocol.
@@ -38,7 +38,7 @@ await mihome.miCloudProtocol.login(username, password);
 ### Example cloud methods
 
 ```javascript
-const options = { country: 'cn' }; // 'ru', 'us', 'tw', 'sg', 'cn', 'de' (Default: 'cn')
+const options = { country: 'us' }; // 'ru', 'us', 'tw', 'sg', 'cn', 'de' (Default: 'cn')
 await mihome.miCloudProtocol.getDevices(null, options); // return all devices from your acount with all information (deviceId, token, model ...) to create device in the next step
 await mihome.miCloudProtocol.getDevices([deviceId1, deviceId2, ...], options); // get devices information from list ids
 await mihome.miCloudProtocol.miioCall(deviceId, method, params, options); // call miio method with params via cloud protocol
